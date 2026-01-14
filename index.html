@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Celiaquía">
+    <meta name="theme-color" content="#e74c3c">
+    <title>Tarjeta de Celiaquía</title>
+    
+    <!-- App Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e74c3c' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white'%3E⚠️%3C/text%3E%3C/svg%3E">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23e74c3c' rx='40'/%3E%3Ctext x='90' y='130' font-size='100' text-anchor='middle' fill='white'%3E⚠️%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .alert-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+        }
+
+        .important {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+
+        .question {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .safe-foods {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .safe-foods h3 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .safe-foods p {
+            color: #155724;
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #721c24;
+        }
+
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideUp 0.5s ease-out;
+            display: none;
+        }
+
+        .install-prompt.show {
+            display: block;
+        }
+
+        .install-prompt button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .section {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="alert-icon">⚠️</div>
+            <h1>Alerta Médica: Celiaquía</h1>
+        </div>
+
+        <div class="section">
+            <p class="important">Tengo una enfermedad que se llama celiaquia y necesito seguir una dieta rigurosa libre de gluten.</p>
+        </div>
+
+        <div class="warning">
+            <p>Como consecuencia me podría poner <strong>muy enfermo</strong> en el caso de que comiera alimentos que contuvieran harinas o granos de trigo, centeno, cebada y avena.</p>
+        </div>
+
+        <div class="question">
+            <p>¿Contiene esta comida harinas o granos de trigo, centeno, cebada o de avena?</p>
+            <p style="margin-top: 10px;">Si tuviera alguna duda sobre el contenido de la comida, por favor dígamelo.</p>
+        </div>
+
+        <div class="safe-foods">
+            <h3>✅ Puedo comer:</h3>
+            <p>Alimentos que contengan <strong>arroz, maíz, patata, todo tipo de verdura y fruta, huevos, queso, leche, carne y pescado</strong> - siempre que no hayan sido preparados con harina de trigo, rebozo, pan rallado o con salsas.</p>
+            <p style="margin-top: 10px;"><strong>Sin salsa, por favor.</strong></p>
+        </div>
+
+        <div class="footer">
+            Muchas Gracias por su ayuda 🙏
+        </div>
+    </div>
+
+    <div class="install-prompt" id="installPrompt">
+        <p><strong>📱 Añadir a Inicio</strong></p>
+        <p style="font-size: 0.9rem; margin-top: 5px;">Guarda esta tarjeta como una app en tu teléfono</p>
+        <button onclick="showInstructions()">Ver Instrucciones</button>
+    </div>
+
+    <script>
+        // Show install prompt after 2 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('hideInstallPrompt')) {
+                document.getElementById('installPrompt').classList.add('show');
+                
+                // Auto-hide after 8 seconds
+                setTimeout(() => {
+                    document.getElementById('installPrompt').classList.remove('show');
+                }, 8000);
+            }
+        }, 2000);
+
+        function showInstructions() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isAndroid = /Android/.test(navigator.userAgent);
+            
+            let instructions = '';
+            
+            if (isIOS) {
+                instructions = 'iOS:\n\n1. Toca el botón "Compartir" (📤)\n2. Desplázate y toca "Añadir a pantalla de inicio"\n3. Toca "Añadir"\n\n¡Listo! Ahora aparecerá como una app.';
+            } else if (isAndroid) {
+                instructions = 'Android:\n\n1. Toca el menú (⋮) en tu navegador\n2. Selecciona "Añadir a pantalla de inicio"\n3. Toca "Añadir"\n\n¡Listo! Ahora aparecerá como una app.';
+            } else {
+                instructions = 'Para añadir a tu pantalla de inicio:\n\n1. Abre el menú de tu navegador\n2. Busca "Añadir a pantalla de inicio"\n3. Sigue las instrucciones\n\n¡Listo!';
+            }
+            
+            alert(instructions);
+            localStorage.setItem('hideInstallPrompt', 'true');
+            document.getElementById('installPrompt').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
